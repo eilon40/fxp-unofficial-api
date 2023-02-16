@@ -1,0 +1,139 @@
+{
+	"info": {
+		"_postman_id": "de234235-ccb5-45f4-86fe-c3056af3ac79",
+		"name": "fxp unofficial api",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "profile",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{domain}}/profile.php?username=avishaiUniverse",
+					"host": [
+						"{{domain}}"
+					],
+					"path": [
+						"profile.php"
+					],
+					"query": [
+						{
+							"key": "username",
+							"value": "avishaiUniverse",
+							"description": "default value"
+						},
+						{
+							"key": "u",
+							"value": "1195305",
+							"disabled": true
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "thread",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{domain}}/thread.php?comments=true&postbody=true",
+					"host": [
+						"{{domain}}"
+					],
+					"path": [
+						"thread.php"
+					],
+					"query": [
+						{
+							"key": "comments",
+							"value": "true",
+							"description": "false is the default value"
+						},
+						{
+							"key": "postbody",
+							"value": "true",
+							"description": "false is the default value"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "category",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://fxptest.000webhostapp.com/temp/?id=255",
+					"protocol": "https",
+					"host": [
+						"fxptest",
+						"000webhostapp",
+						"com"
+					],
+					"path": [
+						"temp",
+						""
+					],
+					"query": [
+						{
+							"key": "id",
+							"value": "255",
+							"description": "category id"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "weekly challenge",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{domain}}/forums-data.json",
+					"host": [
+						"{{domain}}"
+					],
+					"path": [
+						"forums-data.json"
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "domain",
+			"value": "http://localhost/fxpapi",
+			"type": "default"
+		}
+	]
+}
