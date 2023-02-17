@@ -12,6 +12,10 @@ params:
 * postbody=boolean
 * wholike=boolean
 
+//uncomments.php
+params:
+* id=number
+
 //forums-data.json
 
 
