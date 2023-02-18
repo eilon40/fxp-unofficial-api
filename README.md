@@ -16,6 +16,11 @@ params:
 params:
 * id=number
 
+//forumuserstatistics.php
+params:
+* days=number
+* f=number
+
 //forums-data.json
 
 
