@@ -108,7 +108,7 @@
                 const f = clone.querySelector('.text-black');
                 f.innerText = thread.open_by;
                 f.href = "https://www.fxp.co.il/member.php?username=" + thread.open_by;
-                clone.querySelector('.ion-ios-chatboxes-outline ~ span').innerText = (thread.reply_count||0) + " תגובות";
+                clone.querySelector('.ion-ios-chatboxes-outline ~ span').innerText = thread.reply_count + " תגובות";
                 clone.querySelector('.ion-ios-eye-outline ~ span').innerText = thread.views + " צפיות"
                 console.log(thread);
                 row.appendChild(clone);
