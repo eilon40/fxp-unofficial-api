@@ -174,7 +174,7 @@
                 l.innerHTML = thread.title
                 l.href = "https://www.fxp.co.il/showthread.php?t=" + thread.thread_id; 
                 clone.querySelector('.mdi-eye-outline ~ small').innerHTML = thread.views;
-                clone.querySelector('.mdi-comment-text-multiple-outline ~ small').innerHTML = thread.reply_count || '0';
+                clone.querySelector('.mdi-comment-text-multiple-outline ~ small').innerHTML = thread.reply_count;
                 clone.querySelector('img').src = 'https://ui-avatars.com/api/?name='+thread.last_member;
                 forum.appendChild(clone);
                 
