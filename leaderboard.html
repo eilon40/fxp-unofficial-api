@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Leaderboard</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <style>
+    body{
+      font-family:sans-serif;
+      width:100%;
+      min-height:100vh;
+      margin:0;
+      background-color:#23232d;
+      color:#c9c9d4;
+    }
+    *,*::before,*::after {
+      box-sizing: border-box;
+    }
+    h1{
+      font-size:1.5em;
+      color:#fff;
+      margin-bottom:20px;
+      text-align:center;
+    }
+    .container{
+      margin-top:calc(5vw + 20px);
+      margin-bottom:calc(5vw + 20px);
+      padding-left:10px;
+      padding-right:10px;
+      max-width:800px;
+      width:100%;
+      margin-left:auto;
+      margin-right:auto;
+    }
+    .leaderboard{
+      overflow-y:auto;
+      width:100%;
+      background-color:#16161e;
+      border-radius:10px;
+      padding:15px 20px;
+    }
+    .table-header{
+      display:flex;
+      min-width:500px;
+      align-items:center;
+      font-size:.8em;
+      padding:10px 20px;
+    }
+    .table-header span:first-of-type{
+      width:34px;
+      text-align:center;
+      margin-right:20px;
+    }
+    .table-header span:last-of-type{
+      width:50px;
+    }
+    .table-header .username{
+      margin-right:auto;
+    }
+    .table-header .prefix{
+      width:100px;
+      margin-right:10px;
+    }
+    .user{
+      background-color:#262631;
+      min-width:500px;
+      border-radius:10px;
+      display:flex;
+      align-items:center;
+      padding:15px 20px;
+      overflow:hidden;
+      transition:background .3s;
+    }
+    .user:hover{
+      background-color:#2f2f3d;
+    }
+    .user:not(:last-of-type){
+      margin-bottom:5px;
+    }
+    .user .position{
+      font-weight:bold;
+      color:#fff;
+      background-color:#414155;
+      width:34px;
+      height:34px;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      border-radius:100%;
+      margin-right:20px;
+    }
+    .user .position[data-position="1"]{
+      background-color:#ffee32;
+      color:#710000;
+    }
+    .user .position[data-position="2"]{
+      background-color:#ced4da;
+      color:#343a40;
+    }
+    .user .position[data-position="3"]{
+      background-color:#c76f52;
+      color:#6e2108;
+    }
+    .user img{
+      width:34px;
+      border-radius:100%;
+      margin-right:10px;
+    }
+    .user .username{
+      color:#fff;
+      margin-right:auto;
+    }
+    .user .messages,
+    .user .xp{
+      width:100px;
+      margin-right:10px
+    }
+    .user .level{
+      font-weight:bold;
+      color:#fff;
+      border:2px solid black;
+      width:50px;
+      height:34px;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      border-radius:5px;
+      z-index:1;
+      overflow:hidden;
+      position:relative;
+    }
+    .user .level span{
+      position:absolute;
+      top:0;
+      left:0;
+      background-color:#414155;
+      opacity:.5;
+      z-index:-1;
+      height:100%;
+      width:100%;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="container">
+    <h1>Leaderboard top #100</h1>
+    <div class="leaderboard">
+      <div class="table-header">
+        <span>#</span>
+        <span class="username">User</span>
+        <span class="prefix">Messages</span>
+        <span class="prefix">Exp</span>
+        <span>Level</span>
+      </div>
+    </div>
+  </div>
+
+  <script>
+  const array = Array.from(Array(10).keys()).map(number => fetch('https://fxptest.000webhostapp.com/fxpapi/profile.php?u=' + (number+1)).then(res => res.json()));
+  Promise.all(array).then((values) => {
+    console.log(values);
+    let i = 0;
+    const l = document.querySelector('.leaderboard');
+    for (let {username, user_id: tag, user_image: avatar, likes, messages} of values) {
+        i++;
+        const messagess = parseInt(messages);
+        const xp = parseInt(likes);
+        const level = (xp / messagess).toFixed();
+        const nextLevel = Math.round(2**((level + 1)/4*5+1));
+        const nextLevelPercentage = Math.round((1 - (xp / nextLevel)) * 100);
+        l.innerHTML +=
+        `<div class='user'>
+          <span data-position='${i}' class='position'>${i}</span>
+          <img src='${avatar}' alt='${tag}'/>
+          <span class='username'>${username}</span>
+          <span class='messages'>${messagess}</span>
+          <span class='xp'>${xp}</span>
+          <div class='level'>${level} <span style='top:${nextLevelPercentage}%;'></span></div>
+        </div>`;
+    }
+  });
+  </script>
+</body>
+</html>
