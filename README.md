@@ -21,6 +21,10 @@ params:
 * days=number
 * f=number
 
+//user.php
+parans:
+* user=string
+
 //forums-data.json
 
 
