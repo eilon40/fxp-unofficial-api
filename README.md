@@ -22,9 +22,13 @@ params:
 * f=number
 
 //user.php
-parans:
+params:
 * user=string
 
+//raff.php
+params:
+* user=string
+* id=number | optional
 //forums-data.json
 
 
