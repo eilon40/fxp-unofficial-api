@@ -20,6 +20,7 @@ params:
 params:
 * days=number
 * f=number
+* page=number
 
 //user.php
 params:
