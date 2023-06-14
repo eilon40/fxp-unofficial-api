@@ -31,6 +31,9 @@ params:
 * user=string
 * id=number | optional
 
+//middleware.php
+* url = string
+
 //randomuser.php
 params:
 * soon
