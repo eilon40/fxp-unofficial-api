@@ -46,6 +46,8 @@ domain = https://fxptest.000webhostapp.com/temp/
 params:
 * id=number
 
+https://fxptest.000webhostapp.com/blue/middleware/index.php
+
 
 https://fxptest.000webhostapp.com/Koren396.html
 https://fxptest.000webhostapp.com/Koren369.html
