@@ -34,6 +34,9 @@ params:
 //middleware.php
 * url = string
 
+//admins.php
+* search = string
+
 //randomuser.php
 params:
 * soon
