@@ -37,7 +37,12 @@ params:
 //admins.php
 * search = string
 
-//randomuser.php
+//randomuser.php (beta)
+params: 
+* amount = number
+* t = number
+
+//adminmonitor.php
 params:
 * soon
 //forums-data.json
