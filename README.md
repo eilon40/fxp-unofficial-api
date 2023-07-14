@@ -1,5 +1,5 @@
 # fxp-unofficial-api
-
+newdomain soon api.fxp.co.in
 domain = https://fxptest.000webhostapp.com/fxpapi/
 
 // profile.php
